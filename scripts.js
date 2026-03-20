@@ -24,19 +24,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ===== NAVBAR SCROLL EFFECT =====
   const navbar = document.getElementById('navbar');
+  const headerWrapper = document.querySelector('.top-header-wrapper');
   const backToTop = document.getElementById('backToTop');
 
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 60) {
+    const scrollPos = window.scrollY;
+    
+    if (scrollPos > 30) {
       navbar.classList.add('scrolled');
     } else {
       navbar.classList.remove('scrolled');
     }
 
-    if (window.scrollY > 400) {
-      backToTop.classList.add('visible');
+    if (scrollPos > 400) {
+      if (backToTop) backToTop.classList.add('visible');
     } else {
-      backToTop.classList.remove('visible');
+      if (backToTop) backToTop.classList.remove('visible');
     }
   });
 
